@@ -1,14 +1,38 @@
 import React from "react";
+import styled from "styled-components";
+
+const InfoContainer = styled.div `
+    padding: 1rem;
+    margin: 2rem;
+    background: black;
+    color: white;
+    border-radius: 1rem;
+    opacity: .75;
+`;
+
+const InfoLinks = styled.a `
+    text-decoration: none;
+    color: black;
+`;
+
+const InfoButton = styled.button  `
+    background: white;
+    border-radius: 1rem;
+    margin: .5rem;
+`;
+
+
 
 const PersonInfo = (props) => {
     console.log("PersonInfo props", props)
     return (
-        <div className="person-info">
+        <InfoContainer>
             <h1>{props.name}</h1>
-            <h2>{props.dob}</h2>
-            <p>{props.homeworld}</p>
-            <p>{props.species}</p>
-        </div>
+            <h2>Born: {props.dob}</h2>
+            <InfoButton><InfoLinks href={props.homeworld}>Homeworld</InfoLinks></InfoButton>
+            <br></br>
+            <InfoButton><InfoLinks href={props.species}>Species</InfoLinks></InfoButton>
+        </InfoContainer>
     )
 }
 

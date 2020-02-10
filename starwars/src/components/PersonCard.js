@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import PersonInfo from "./PersonInfo";
 import axios from "axios";
+import styled from "styled-components";
 
+const Card = styled.div `
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: row wrap;
+`;
 
 
 const PersonCard = () => {
@@ -20,11 +27,11 @@ const PersonCard = () => {
     // console.log("PersonCard person", person)
 
     return (
-        <div>
+        <Card>
             {person.map((character, id)=> {
                 return <PersonInfo key={id} name={character.name} dob={character.birth_year} homeworld={character.homeworld} species={character.species}/>;
             })}
-        </div>
+        </Card>
     )
 }
 
